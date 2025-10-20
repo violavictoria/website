@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Modeling</title>
+  <link rel="stylesheet" href="style4.css">
+
+</head>
+<body>
+
+    <h1><a href="index.html">VIOIA</a></h1>
+  <script>
+    const imageSources = [
+      'A-MODELING/voldrich_8.jpg',
+      'A-MODELING/uwu.jpg',
+      'A-MODELING/voldrich_1.jpg',
+      'A-MODELING/voldrich_5.png',
+      'A-MODELING/voldrich-2.png',
+      'A-MODELING/mee2.jpg',
+      'A-MODELING/ich-rauchend6.jpg',
+      'A-MODELING/voldrich_4.png',
+      'A-MODELING/DSC09840.jpg',
+      'A-MODELING/voldrich_3.jpg',
+      'A-MODELING/_MG_6317.jpg',
+    ];
+
+    imageSources.forEach(src => {
+      const img = document.createElement('img');
+      img.src = src;
+      img.className = 'image';
+
+      // Random position
+    const imageWidth = window.innerWidth * 0.15; // weil .image { width: 15% }
+    const imageHeight = imageWidth * 0.95; // ungefähres seitenverhältnis, optional
+
+    const randomTop = Math.random() * (window.innerHeight - imageHeight);
+    const randomLeft = Math.random() * (window.innerWidth - imageWidth);
+
+
+      img.style.top = `${randomTop}px`;
+      img.style.left = `${randomLeft}px`;
+
+      // Optional: Random rotation
+      const angle = Math.random() * 40 - 20; // -20° to +20°
+      img.style.transform = `rotate(${angle}deg)`;
+
+      document.body.appendChild(img);
+    });
+  </script>
+
+    <div class="lightbox">
+        <span class="close"></span>
+        <img class="lightbox-image" alt="Großes Bild">
+    </div>
+    <script src="script.js"></script>
+
+<footer class="footer">
+    &copy; 2025 | Viola Victoria Voldřich | VIOIɅ
+</footer>
+
+</body>
+</html>

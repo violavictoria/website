@@ -1,0 +1,181 @@
+@font-face {
+    font-family: 'OatMeal';
+    src: url('fonts/OatMeal.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Microwaves'; /* frei gewählter name, ohne .ttf */
+    src: url('fonts/Microwaves.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Dieselpower';
+    src: url('fonts/DieselpowerPersonalUse-axaY5.ttf') format('truetype');
+}
+
+body
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15%;
+    padding-bottom: 10vh;
+    background-size: contain;
+    background-position: center;
+    font-family: 'Dieselpower', sans-serif;
+}
+
+h1 a{
+    text-decoration: none;
+    position: absolute;
+    top: 2%;
+    left: 2%;
+    color: black;
+    font-family: 'Microwaves', sans-serif;
+    font-size: 9vw;
+    margin: 0;
+    padding: 1%;
+}
+
+h1 a:visited {
+    color: black;           /* auch nach klick weiß lassen */
+}
+
+.container
+{
+    position: relative;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.neustart
+{
+    font-family: 'Dieselpower', sans-serif;
+    padding: 15px 20px;
+    background: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5em;
+    letter-spacing: 0.1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 5px;
+}
+
+.neustart:focus
+{
+    background: white;
+    color: black;
+}
+
+.spiel
+{
+    margin-bottom: 5%;
+    width: 95%;
+    height: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    transform-style: preserve-3d;
+    perspective: 500px;
+}
+
+.karte {
+    width: 200px;
+    height: 200px;
+    display: flex;              /* wichtig: flex für zentrierung */
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: 1s;
+    transform: scaleX(-1);
+    background: black;          /* schwarzer hintergrund = balken */
+    overflow: hidden;           /* kein overflow */
+}
+
+.karte img {
+    width: 200%;
+    height: 200%;
+    object-fit: contain;        /* Bild skaliert ohne Verzerrung */
+}
+
+.karte:after 
+{
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    inset: 0;
+    background-image: url("ehh.png");
+    transition: 1s;
+    backface-visibility: hidden; 
+    object-fit: contain; 
+}
+
+.karte.flip, .flip:after, .match:after
+{
+    transform: rotateY(180deg);
+}
+
+.footer {
+    color: grey;
+    background-color: white;
+    border-top: 1px solid #333;
+    font-family: 'Arial', 'Helvetica', 'sans-serif';
+    font-size: 0.8em; 
+    letter-spacing: 0.1em;
+    justify-content: center;
+    align-items: center;
+    min-height: 5vh;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+/* Responsive Anpassung für Tablet */
+@media (max-width: 1024px) {
+    .karte {
+        width: 100px;
+        height: 100px;
+    }
+    .spiel {
+        margin-top: 5%;
+        gap: 8px;
+    }
+    h1 a {
+        font-size: 12vw; /* Schrift wird dynamisch kleiner */
+    }
+     .neustart {
+        font-size: 0.8em;
+        padding: 7px 12px;
+    }
+/* Responsive Anpassung für Handy */
+}
+@media (max-width: 600px) {
+    .karte {
+        width: 50px;
+        height: 50px;
+    }
+    .spiel {
+        margin-top: 5%;
+        gap: 6px;
+        width: 100%;
+    }
+    h1 a {
+        font-size: 14vw;
+        top: 1%;
+        left: 1%;
+    }
+    .neustart {
+        font-size: 0.5em;
+        padding: 5px 10px;
+    }
+}
